@@ -1,47 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>初期登録</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css">
-    <style type="text/css">
-        span {
-            color:red;
-        }
-        </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>初期登録</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css">
 </head>
 <body>
-
-    <form class="w-75 mx-auto">
-        <p class="mt-3">モード<span>*</span></p>
+  <form class="w-75 mx-auto">
+    <p class="mt-3">モード<span>*</span></p>
         <div>
             <select class="form-control w-100 mt-1" name="udetate" required>
                 <option value="選択肢1">社員モード</option>
                 <option value="選択肢2">クライアントモード</option>
             </select>
         </div>
-       <p class="mt-3">氏名（漢字・スペースなし）<span>*</span></p>
+        <p class="mt-3">氏名（漢字・スペースなし）<span>*</span></p>
         <div>
             <input class="form-control w-100 mt-1" name="name" placeholder="" required>
         </div>
-        
         <p class="mt-3">クライアント名（クライアントモードの時）</p>
         <div>
             <input class="form-control w-100 mt-1" name="fukkin">
         </div>
-    </form>
+  </form>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
-    <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
-    <script>
-
-        liff.init({
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
+  <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
+  <script>
+    liff.init({
       liffId: '1660815576-v4j5JVeq'
     }).catch((err) => {
       console.log(err);
@@ -61,8 +53,6 @@
       event.preventDefault();
       $.post( 'https://script.google.com/macros/s/AKfycbw44LdbjPF52UvlNZpH4Xp3Yn_DrwMeiRlgt_2ontBDuWfcajmUnMkP6XZq8lN8X0bhpA/exec', $('form').serialize() );
     });
-
-    </script>
-
+  </script>
 </body>
 </html>
