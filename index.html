@@ -55,9 +55,9 @@
     })
 
     $('form').submit(function( event ) {
+      liff.closeWindow();
       event.preventDefault();
       $.post( 'https://script.google.com/macros/s/AKfycbw44LdbjPF52UvlNZpH4Xp3Yn_DrwMeiRlgt_2ontBDuWfcajmUnMkP6XZq8lN8X0bhpA/exec', $('form').serialize() );
-      liff.closeWindow();
     });
 $('form').submit(function() {
     window.open('https://yun1661.github.io/liffformapp/form.html', '_blank');
