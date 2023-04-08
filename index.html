@@ -51,11 +51,10 @@
       const idToken = liff.getDecodedIDToken();
       const userId = idToken.sub;
       $('form').append(`<input type="hidden" name="userId" value="${userId}">`);
-      $('form').append(`<input type="submit" class="mt-4 btn btn-primary" value="送信">`);
+      $('form').append(`<input type="submit" class="mt-4 btn btn-primary" value="登録">`);
     })
 
     $('form').submit(function( event ) {
-      liff.closeWindow();
       event.preventDefault();
       $.post( 'https://script.google.com/macros/s/AKfycbw44LdbjPF52UvlNZpH4Xp3Yn_DrwMeiRlgt_2ontBDuWfcajmUnMkP6XZq8lN8X0bhpA/exec', $('form').serialize() );
     });
