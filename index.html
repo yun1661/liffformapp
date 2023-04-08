@@ -32,7 +32,6 @@
         <div>
             <input class="form-control w-100 mt-1" name="fukkin">
         </div>
-        <input type="submit" class="mt-4 btn btn-primary" value="送信">
     </form>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -42,45 +41,26 @@
     <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
     <script>
 
-        $(document).ready(function () {
-            const liffId = "1660815576-v4j5JVeq";
-            initializeLiff(liffId);
-        })
+        liff.init({
+      liffId: '1660815576-v4j5JVeq'
+    }).catch((err) => {
+      console.log(err);
+    });
 
-        function initializeLiff(liffId) {
-            liff.init({
-                liffId: liffId
-            }).then(() => {
-                initializeApp();
-            }).catch((err) => {
-                console.log('LIFF Initialization failed ', err);
-            });
-        }
+    liff.ready.then(() => {
+      if (!liff.isLoggedIn()) {
+        liff.login();
+      }
+      const idToken = liff.getDecodedIDToken();
+      const userId = idToken.sub;
+      $('form').append(`<input type="hidden" name="userId" value="${userId}">`);
+      $('form').append(`<input type="submit" class="mt-4 btn btn-primary" value="送信">`);
+    })
 
-        function sendText(text) {
-            liff.sendMessages([{
-                'type': 'text',
-                'text': text
-            }]).then(function () {
-                liff.closeWindow();
-            }).catch(function (error) {
-                window.alert('Failed to send message ' + error);
-            });
-        }
-
-        const params = (new URL(document.location)).searchParams;
-        const key = params.get('key');
-
-        $(function () {
-            $('form').submit(function () {
-                const udetate = $('select[name="udetate"]').val();
-                const name    = $('input[name="name"]').val();s
-                const fukkin  = $('input[name="fukkin"]').val();
-                const msg = `${udetate}\n${name}\n${fukkin}`;
-                sendText(msg);
-                return false;
-            });
-        });
+    $('form').submit(function( event ) {
+      event.preventDefault();
+      $.post( 'https://script.google.com/macros/s/AKfycbwV-exrK9S7NHwzZxS4rk-rqPn_jGOz3Qr5XmEpvQ5w08-Av3otA4grwIBd1zSjJw6B/exec', $('form').serialize() );
+    });
 
     </script>
 
