@@ -7,6 +7,11 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rossorigin="anonymous">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css">
+  <style type="text/css">
+    span {
+        color:red;
+    }
+    </style>
 </head>
 <body>
   <form class="w-75 mx-auto">
@@ -52,6 +57,7 @@
     $('form').submit(function( event ) {
       event.preventDefault();
       $.post( 'https://script.google.com/macros/s/AKfycbw44LdbjPF52UvlNZpH4Xp3Yn_DrwMeiRlgt_2ontBDuWfcajmUnMkP6XZq8lN8X0bhpA/exec', $('form').serialize() );
+      location.href = 'https://yun1661.github.io/liffformapp/form.html';
     });
   </script>
 </body>
